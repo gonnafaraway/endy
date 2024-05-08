@@ -1,0 +1,18 @@
+- url: https://www.yandex.ru
+  assert_code: 200
+  method: GET
+  headers:
+    - name: Content-Type
+      value: application/json
+- url: https://www.mail.ru
+  assert_code: 200
+  method: GET
+  headers:
+    - name: Content-Type
+      value: application/json
+- url: https://www.github.com
+  assert_code: 200
+  method: GET
+  headers:
+    - name: Content-Type
+      value: application/json

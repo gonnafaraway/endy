@@ -10,8 +10,9 @@ Simple and fast library to integrate end-to-end tests to your Golang app
 
 ```go
 import (
-"github.com/gonnafaraway/endy"
 "time"
+
+"github.com/gonnafaraway/endy"
 )
 
 func main() {

@@ -6,7 +6,7 @@ Simple and fast library to integrate end-to-end tests to your Golang app
 - before executing code create .yaml file with description of expected tests to be executed, see **examples/** directory
 - tester ends successfully, if all tests were done, otherwise, it wil os.Exit(1)
 - this code showed very useful for apps, that must be tested in Gitlab CI or another CI Software, try!
-- choose, what you expect to do if your tests failed, i recommend to user os.Exit(1)
+- choose, what you expect to do if your tests failed, i recommend to use os.Exit(1)
 
 # Library
 ```go

@@ -8,6 +8,7 @@ Simple and fast library to integrate end-to-end tests to your Golang app
 - this code showed very useful for apps, that must be tested in Gitlab CI or another CI Software, try!
 - choose, what you expect to do if your tests failed, i recommend to user os.Exit(1)
 
+# Library
 ```go
 import (
 "time"
@@ -30,6 +31,15 @@ if err := e.Run(); err != nil {
 panic(err)}
 }
 ```
+
+# CLI
+
+```
+go install github.com/gonnafaraway/endy/cmd/endy@latest 
+```
+- if path not set, will be taken config.yaml from the same pwd
+- default timeout is the same, as in library - 10 seconds
+
 # Default
 | Timeout    | 
 |:-----------| 

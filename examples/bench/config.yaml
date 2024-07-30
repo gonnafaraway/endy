@@ -1,0 +1,15 @@
+- url: https://jsonplaceholder.typicode.com/posts
+  method: GET
+  headers:
+    - name: Content-Type
+      value: application/json
+- url: https://jsonplaceholder.typicode.com/comments
+  method: GET
+  headers:
+    - name: Content-Type
+      value: application/json
+- url: https://jsonplaceholder.typicode.com/todos
+  method: GET
+  headers:
+    - name: Content-Type
+      value: application/json

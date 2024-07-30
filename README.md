@@ -32,6 +32,9 @@ panic(err)}
 }
 ```
 
+# Benchmark
+- with installed bombardier(https://github.com/codesenberg/bombardier) tool endy can benchmark endpoints and print out short results
+
 # CLI
 
 ```

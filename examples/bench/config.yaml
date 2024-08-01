@@ -3,13 +3,22 @@
   headers:
     - name: Content-Type
       value: application/json
+  threads: 125
+  requests: 3000
+  duration: 30s
 - url: https://jsonplaceholder.typicode.com/comments
   method: GET
   headers:
     - name: Content-Type
       value: application/json
+  threads: 125
+  requests: 3000
+  duration: 30s
 - url: https://jsonplaceholder.typicode.com/todos
   method: GET
   headers:
     - name: Content-Type
       value: application/json
+  threads: 125
+  requests: 3000
+  duration: 30s

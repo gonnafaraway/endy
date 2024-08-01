@@ -30,8 +30,9 @@ type Config struct {
 }
 
 type Header struct {
-	Name  string `yaml:"name"`
-	Value string `yaml:"value"`
+	Name      string `yaml:"name"`
+	Value     string `yaml:"value"`
+	EnvSecret string `yaml:"env_secret,omitempty"`
 }
 
 type Test struct {
@@ -66,7 +67,9 @@ func (t *Tester) Run() error {
 		return fmt.Errorf("unmarshall test configuration: %v", err)
 	}
 
-	t.Tests = tests
+	preparedTests := prepareTests(tests)
+
+	t.Tests = preparedTests
 
 	if t.Config.Timeout != 0 {
 		to = t.Config.Timeout
@@ -231,4 +234,25 @@ func prepareBenchHeaders(headers []Header) string {
 		headerString += header.Name + ": " + header.Value + " "
 	}
 	return headerString
+}
+
+func prepareTests(tests *[]Test) *[]Test {
+	for _, test := range *tests {
+		prepareHeadersSecrets(test.Headers)
+	}
+	return tests
+}
+
+func prepareHeadersSecrets(headers []Header) []Header {
+	for _, header := range headers {
+		if header.EnvSecret != "" {
+			value, found := os.LookupEnv(header.EnvSecret)
+			if !found {
+				log.Fatalf("Environment variable %s not found", header.EnvSecret)
+			}
+
+			header.Value = value
+		}
+	}
+	return headers
 }
